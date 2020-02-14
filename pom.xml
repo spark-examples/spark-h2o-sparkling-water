@@ -10,7 +10,7 @@
     <inceptionYear>2008</inceptionYear>
     <packaging>jar</packaging>
     <properties>
-        <scala.version>2.11.11</scala.version>
+        <scala.version>2.13.1</scala.version>
         <spark.version>2.4.4</spark.version>
     </properties>
 
