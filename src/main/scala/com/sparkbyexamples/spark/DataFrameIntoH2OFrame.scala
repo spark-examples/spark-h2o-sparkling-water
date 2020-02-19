@@ -3,7 +3,7 @@ package com.sparkbyexamples.spark
 import org.apache.spark.h2o.H2OContext
 import org.apache.spark.sql.SparkSession
 
-object H2OFrameFromDataFrame extends App {
+object DataFrameIntoH2OFrame extends App {
 
 
   val spark = SparkSession.builder()
