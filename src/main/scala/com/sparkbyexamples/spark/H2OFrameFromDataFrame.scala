@@ -3,7 +3,7 @@ package com.sparkbyexamples.spark
 import org.apache.spark.h2o.H2OContext
 import org.apache.spark.sql.SparkSession
 
-object H20FrameFromDataFrame extends App {
+object H2OFrameFromDataFrame extends App {
 
 
   val spark = SparkSession.builder()
@@ -16,20 +16,21 @@ object H20FrameFromDataFrame extends App {
     .option("inferSchema", "true")
     .csv(zipCodes)
 
+
   zipCodesDF.printSchema()
   zipCodesDF.show(false)
   val h2oContext = H2OContext.getOrCreate(spark)
-  val h20Frame = h2oContext.asH2OFrame(zipCodesDF)
+  val h2oFrame = h2oContext.asH2OFrame(zipCodesDF)
 
-  println(h20Frame._names.mkString(","))
+  println(h2oFrame._names.mkString(","))
 
-  println(h20Frame.names().mkString(","))
+  println(h2oFrame.names().mkString(","))
 
-  println(h20Frame.numRows())
+  println(h2oFrame.numRows())
 
-  println(h20Frame.numCols())
+  println(h2oFrame.numCols())
 
-  h20Frame.rename("zipcode","postcode")
-  println(h20Frame.names().mkString(","))
+  h2oFrame.rename("zipcode","postcode")
+  println(h2oFrame.names().mkString(","))
 
 }
