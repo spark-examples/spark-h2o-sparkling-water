@@ -21,4 +21,11 @@ object CreateH2OFrame extends App{
   val parquetDataFile = "src/main/resources/zipcodes.parquet"
   val zipCodeParquetFrame = new H2OFrame(new File(parquetDataFile))
   println(zipCodeParquetFrame.names().mkString(","))
+
+  val aa =  new H2OFrame(zipCodeParquetFrame)
+  println(aa.names().mkString(","))
+
+  import spark.implicits._
+  val df = spark.read.format("h2o").load(zipCodeParquetFrame.key.toString)
+  df.printSchema
 }
